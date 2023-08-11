@@ -3,6 +3,7 @@ package maps;
 import enums.ERegionType;
 import managers.Credentials;
 import utils.Interfaces.ISelectCoordinatesAble;
+import utils.Logger;
 import utils.Vector2;
 
 public class Region implements ISelectCoordinatesAble {
@@ -52,6 +53,24 @@ public class Region implements ISelectCoordinatesAble {
 	@Override
 	public Vector2 getSelectCoordinatesCenter() {
 		return this.coordinates;
+	}
+
+	public void print() {
+
+		Logger.INSTANCE.log("printint region");
+		Logger.INSTANCE.log(this.eRegionType);
+
+		if (this.hasMine)
+			Logger.INSTANCE.log("has mine");
+		if (this.isMagic)
+			Logger.INSTANCE.log("is magic");
+		if (this.hasCavern)
+			Logger.INSTANCE.log("has cavern");
+		if (this.hasLostTribeSymbol)
+			Logger.INSTANCE.log("has Lost Tribe symbol");
+
+		Logger.INSTANCE.newLine();
+
 	}
 
 }
