@@ -1,5 +1,13 @@
 package races;
 
-public abstract class Race {
+import utils.Interfaces.IImageViewAble;
+
+public abstract class Race implements IImageViewAble {
+
+	public Race() {
+
+	}
+
+	public abstract int getValue();
 
 }

@@ -1,4 +1,4 @@
-package maps;
+package regions;
 
 import enums.ERegionType;
 import utils.ShutDown;

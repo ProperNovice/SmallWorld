@@ -2,6 +2,7 @@ package maps;
 
 import enums.ELayerZ;
 import managers.Credentials;
+import regions.Region;
 import utils.ArrayList;
 import utils.HashMap;
 import utils.ImageView;

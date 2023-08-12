@@ -3,7 +3,8 @@ package gameStates;
 import gameStatesDefault.GameState;
 import maps.Map;
 import maps.MapVanilla2;
-import maps.Region;
+import regions.Region;
+import tokens.LostTribes;
 
 public class JUnit extends GameState {
 
@@ -14,7 +15,8 @@ public class JUnit extends GameState {
 
 		for (Region region : map.getRegions()) {
 
-			region.setSelected();
+			if (region.hasLostTribeSymbol())
+				region.addTokenLinearRelocate(new LostTribes());
 
 		}
 

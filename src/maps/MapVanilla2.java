@@ -1,6 +1,7 @@
 package maps;
 
 import enums.ERegionType;
+import regions.RegionBuilder;
 
 public class MapVanilla2 extends Map {
 
