@@ -1,6 +1,6 @@
 package tokens;
 
-import races.Race;
+import model.Race;
 
 public class TokenRace extends Token {
 

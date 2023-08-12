@@ -1,4 +1,4 @@
-package regions;
+package model;
 
 import enums.ERegionType;
 import listCredentials.ListRegionLinear;

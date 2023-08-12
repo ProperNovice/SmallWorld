@@ -1,19 +1,24 @@
-package races;
+package model;
 
+import enums.ERace;
 import utils.ImageView;
 import utils.Interfaces.IImageViewAble;
 
-public abstract class Race implements IImageViewAble {
+public class Race implements IImageViewAble {
 
-	public Race() {
+	private ERace eRace = null;
+
+	public Race(ERace eRace) {
+
+		this.eRace = eRace;
 
 		String fileNameFront = "races/", fileNameBack = fileNameFront;
 
 		fileNameFront += "front/";
 		fileNameBack += "back/";
 
-		fileNameFront += this.getClass().getSimpleName();
-		fileNameBack += this.getClass().getSimpleName();
+		fileNameFront += this.eRace.toString();
+		fileNameBack += this.eRace.toString();
 
 		fileNameFront += ".png";
 		fileNameBack += ".png";
@@ -23,6 +28,8 @@ public abstract class Race implements IImageViewAble {
 
 	}
 
-	public abstract int getValue();
+	public ERace getERace() {
+		return this.eRace;
+	}
 
 }

@@ -1,4 +1,4 @@
-package specialPowers;
+package model;
 
 import utils.ImageView;
 import utils.Interfaces.IImageViewAble;
