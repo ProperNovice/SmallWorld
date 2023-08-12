@@ -9,7 +9,8 @@ public class Token implements IImageViewAble {
 
 	public Token() {
 
-		createImageView();
+		if (!(this instanceof TokenRace))
+			createImageView();
 
 	}
 

@@ -4,7 +4,6 @@ import enums.ERegionType;
 import listCredentials.ListRegionLinear;
 import listCredentials.ListRegionStatic;
 import managers.Credentials;
-import tokens.Mountain;
 import tokens.Token;
 import utils.Interfaces.ISelectCoordinatesAble;
 import utils.ListImageViewAbles;
@@ -32,9 +31,6 @@ public class Region implements ISelectCoordinatesAble {
 		this.coordinates.addVector2(Credentials.INSTANCE.cMap);
 		this.listLinear.getListCredentials().coordinatesList = this.coordinates;
 		this.listStatic.getListCredentials().coordinatesList = this.coordinates;
-
-		if (this.eRegionType.equals(ERegionType.MOUNTAIN))
-			addTokenStaticRelocate(new Mountain());
 
 	}
 

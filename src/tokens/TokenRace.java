@@ -10,12 +10,24 @@ public class TokenRace extends Token {
 
 		this.classRace = classRace;
 		super.createImageView();
+		createBack();
+
+	}
+
+	private void createBack() {
+
+		String fileName = "";
+		fileName += "tokens/races/back/";
+		fileName += this.classRace.getSimpleName();
+		fileName += ".png";
+
+		getImageView().setBack(fileName);
 
 	}
 
 	@Override
 	protected String getFileName() {
-		return "races/" + this.classRace.getSimpleName();
+		return "races/front/" + this.classRace.getSimpleName();
 	}
 
 }
