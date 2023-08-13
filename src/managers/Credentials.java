@@ -42,19 +42,20 @@ public enum Credentials {
 		x = this.gapBetweenBorders;
 		this.cMap = new Vector2(x, x);
 
-		// gapBetweenRaceAndSpecialPower
-
-		this.gapBetweenRaceAndSpecialPower = 170;
-
 		// d special power
 
 		x = 229;
 		y = 228;
-		this.dSpecialPower = new Vector2(x, y);
+		double scale = 1;
+		this.dSpecialPower = new Vector2(x * scale, y * scale);
+
+		// gapBetweenRaceAndSpecialPower
+
+		this.gapBetweenRaceAndSpecialPower = 170 * scale;
 
 		// d race
 
-		y = 228;
+		y = this.dSpecialPower.y;
 		x = 439 * this.dSpecialPower.y / 233;
 		this.dRace = new Vector2(x, y);
 

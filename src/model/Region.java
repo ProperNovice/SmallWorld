@@ -35,16 +35,17 @@ public class Region implements ISelectCoordinatesAble {
 	}
 
 	public void addTokenLinearRelocate(Token token) {
-
-		this.listLinear.getArrayList().addLast(token);
-		this.listLinear.relocateImageViews();
-
+		addTokenRelocate(this.listLinear, token);
 	}
 
 	public void addTokenStaticRelocate(Token token) {
+		addTokenRelocate(this.listStatic, token);
+	}
 
-		this.listStatic.getArrayList().addLast(token);
-		this.listStatic.relocateImageViews();
+	private void addTokenRelocate(ListImageViewAbles<Token> listImageViewAbles, Token token) {
+
+		listImageViewAbles.getArrayList().addLast(token);
+		listImageViewAbles.relocateImageViews();
 
 	}
 

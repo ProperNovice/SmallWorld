@@ -18,7 +18,14 @@ public enum Board {
 		this.background.getImageView().setVisible(false);
 	}
 
-	public void fill() {
+	public void fillAndShow() {
+
+		fill();
+		show();
+
+	}
+
+	private void fill() {
 
 		Race race = RacesManager.INSTANCE.getRandomRace();
 		SpecialPower specialPower = SpecialPowersManager.INSTANCE.getRandomSpecialPower();
