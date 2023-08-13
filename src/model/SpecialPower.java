@@ -1,20 +1,31 @@
 package model;
 
+import enums.ELayerZ;
+import enums.ESpecialPower;
+import managers.Credentials;
 import utils.ImageView;
 import utils.Interfaces.IImageViewAble;
 
-public abstract class SpecialPower implements IImageViewAble {
+public class SpecialPower implements IImageViewAble {
 
-	public SpecialPower() {
+	private ESpecialPower eSpecialPower = null;
 
-		String fileName = "special powers/";
-		fileName += this.getClass().getSimpleName();
+	public SpecialPower(ESpecialPower eSpecialPower) {
+
+		this.eSpecialPower = eSpecialPower;
+
+		String fileName = "specialPowers/";
+		fileName += this.eSpecialPower.toString();
 		fileName += ".png";
 
-		new ImageView(fileName, this);
+		new ImageView(fileName, ELayerZ.RACES_SPECIAL_POWERS, this);
+
+		getImageView().setDimensions(Credentials.INSTANCE.dSpecialPower);
 
 	}
 
-	public abstract int getValue();
+	public ESpecialPower getESpecialPower() {
+		return this.eSpecialPower;
+	}
 
 }

@@ -16,6 +16,7 @@ public enum Credentials {
 	public RearrangeTypeEnum rearrangeTypeEnumText = RearrangeTypeEnum.LINEAR;
 
 	public Vector2 cMap;
+	public Vector2 dSpecialPower, dRace;
 	public double gapBetweenRaceAndSpecialPower;
 
 	private Credentials() {
@@ -44,6 +45,18 @@ public enum Credentials {
 		// gapBetweenRaceAndSpecialPower
 
 		this.gapBetweenRaceAndSpecialPower = 170;
+
+		// d special power
+
+		x = 229;
+		y = 228;
+		this.dSpecialPower = new Vector2(x, y);
+
+		// d race
+
+		y = 228;
+		x = 439 * this.dSpecialPower.y / 233;
+		this.dRace = new Vector2(x, y);
 
 	}
 
