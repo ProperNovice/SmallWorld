@@ -5,6 +5,7 @@ import enums.ESpecialPower;
 import managers.Credentials;
 import utils.ImageView;
 import utils.Interfaces.IImageViewAble;
+import utils.Logger;
 
 public class SpecialPower implements IImageViewAble {
 
@@ -22,6 +23,11 @@ public class SpecialPower implements IImageViewAble {
 
 		getImageView().setDimensions(Credentials.INSTANCE.dSpecialPower);
 
+	}
+
+	public void print() {
+		Logger.INSTANCE.logNewLine(this.eSpecialPower.toString().toLowerCase() + " -> "
+				+ this.eSpecialPower.getValue());
 	}
 
 	public ESpecialPower getESpecialPower() {

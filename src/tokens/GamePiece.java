@@ -5,12 +5,9 @@ import enums.ETokenSize;
 import utils.ImageView;
 import utils.Interfaces.IImageViewAble;
 
-public class Token implements IImageViewAble {
+public abstract class GamePiece implements IImageViewAble {
 
-	public Token() {
-
-		if (!(this instanceof TokenRace))
-			createImageView();
+	public GamePiece() {
 
 	}
 

@@ -2,11 +2,11 @@ package tokens;
 
 import model.Race;
 
-public class TokenRace extends Token {
+public class GamePieceRace extends GamePiece {
 
 	private Class<? extends Race> classRace = null;
 
-	public TokenRace(Class<? extends Race> classRace) {
+	public GamePieceRace(Class<? extends Race> classRace) {
 
 		this.classRace = classRace;
 		super.createImageView();

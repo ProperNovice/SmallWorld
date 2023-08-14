@@ -5,6 +5,7 @@ import enums.ERace;
 import managers.Credentials;
 import utils.ImageView;
 import utils.Interfaces.IImageViewAble;
+import utils.Logger;
 
 public class Race implements IImageViewAble {
 
@@ -30,6 +31,11 @@ public class Race implements IImageViewAble {
 
 		getImageView().setDimensions(Credentials.INSTANCE.dRace);
 
+	}
+
+	public void print() {
+		Logger.INSTANCE
+				.logNewLine(this.eRace.toString().toLowerCase() + " -> " + this.eRace.getValue());
 	}
 
 	public ERace getERace() {

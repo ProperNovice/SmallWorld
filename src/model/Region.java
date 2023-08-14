@@ -4,7 +4,7 @@ import enums.ERegionType;
 import listCredentials.ListRegionLinear;
 import listCredentials.ListRegionStatic;
 import managers.Credentials;
-import tokens.Token;
+import tokens.GamePiece;
 import utils.Interfaces.ISelectCoordinatesAble;
 import utils.ListImageViewAbles;
 import utils.Logger;
@@ -15,8 +15,8 @@ public class Region implements ISelectCoordinatesAble {
 	private ERegionType eRegionType = null;
 	private boolean hasMine = false, isMagic = false, hasCavern = false, hasLostTribeSymbol = false;
 	private Vector2 coordinates = null;
-	public ListImageViewAbles<Token> listLinear = new ListImageViewAbles<>(ListRegionLinear.class);
-	public ListImageViewAbles<Token> listStatic = new ListImageViewAbles<>(ListRegionStatic.class);
+	public ListImageViewAbles<GamePiece> listLinear = new ListImageViewAbles<>(ListRegionLinear.class);
+	public ListImageViewAbles<GamePiece> listStatic = new ListImageViewAbles<>(ListRegionStatic.class);
 
 	public Region(ERegionType eRegionType, boolean hasMine, boolean isMagic, boolean hasCavern,
 			boolean hasLostTribeSymbol, Vector2 coordinates) {
@@ -34,15 +34,15 @@ public class Region implements ISelectCoordinatesAble {
 
 	}
 
-	public void addTokenLinearRelocate(Token token) {
+	public void addTokenLinearRelocate(GamePiece token) {
 		addTokenRelocate(this.listLinear, token);
 	}
 
-	public void addTokenStaticRelocate(Token token) {
+	public void addTokenStaticRelocate(GamePiece token) {
 		addTokenRelocate(this.listStatic, token);
 	}
 
-	private void addTokenRelocate(ListImageViewAbles<Token> listImageViewAbles, Token token) {
+	private void addTokenRelocate(ListImageViewAbles<GamePiece> listImageViewAbles, GamePiece token) {
 
 		listImageViewAbles.getArrayList().addLast(token);
 		listImageViewAbles.relocateImageViews();

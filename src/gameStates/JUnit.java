@@ -1,6 +1,7 @@
 package gameStates;
 
 import enums.ERegionType;
+import enums.ESpecialPower;
 import gameStatesDefault.GameState;
 import maps.Map;
 import maps.MapVanilla2;
@@ -24,6 +25,9 @@ public class JUnit extends GameState {
 				region.addTokenLinearRelocate(new LostTribes());
 
 		}
+		
+		for(ESpecialPower eSpecialPower: ESpecialPower.values())
+			System.out.println(eSpecialPower + " " + eSpecialPower.getValue());
 
 	}
 
