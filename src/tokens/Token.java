@@ -1,13 +1,12 @@
 package tokens;
 
 import enums.ELayerZ;
-import enums.ETokenSize;
 import utils.ImageView;
 import utils.Interfaces.IImageViewAble;
 
-public abstract class GamePiece implements IImageViewAble {
+public abstract class Token implements IImageViewAble {
 
-	public GamePiece() {
+	public Token() {
 
 	}
 
@@ -19,17 +18,10 @@ public abstract class GamePiece implements IImageViewAble {
 		fileName += ".png";
 
 		new ImageView(fileName, getELayerZ(), this);
-		getImageView().setWidth(getETokenSize().size());
 
 	}
 
-	protected String getFileName() {
-		return this.getClass().getSimpleName();
-	}
-
-	protected ETokenSize getETokenSize() {
-		return ETokenSize.SMALL;
-	}
+	protected abstract String getFileName();
 
 	protected ELayerZ getELayerZ() {
 		return ELayerZ.TOKENS;

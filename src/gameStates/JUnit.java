@@ -1,13 +1,12 @@
 package gameStates;
 
+import enums.EToken;
 import enums.ERegionType;
-import enums.ESpecialPower;
 import gameStatesDefault.GameState;
 import maps.Map;
 import maps.MapVanilla2;
 import model.Region;
-import tokens.LostTribes;
-import tokens.Mountain;
+import tokens.TokenNonRace;
 
 public class JUnit extends GameState {
 
@@ -19,15 +18,12 @@ public class JUnit extends GameState {
 		for (Region region : map.getRegions()) {
 
 			if (region.getERegionType().equals(ERegionType.MOUNTAIN))
-				region.addTokenStaticRelocate(new Mountain());
+				region.addTokenStaticRelocate(new TokenNonRace(EToken.MOUNTAIN));
 
 			if (region.hasLostTribeSymbol())
-				region.addTokenLinearRelocate(new LostTribes());
+				region.addTokenLinearRelocate(new TokenNonRace(EToken.LOSTTRIBES));
 
 		}
-		
-		for(ESpecialPower eSpecialPower: ESpecialPower.values())
-			System.out.println(eSpecialPower + " " + eSpecialPower.getValue());
 
 	}
 

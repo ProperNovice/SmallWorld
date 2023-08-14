@@ -10,7 +10,7 @@ public enum ETokenSize {
 		this.size = size;
 	}
 
-	public double size() {
+	public double getSize() {
 		return this.size;
 	}
 
