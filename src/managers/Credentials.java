@@ -42,28 +42,15 @@ public enum Credentials {
 		x = this.gapBetweenBorders;
 		this.cMap = new Vector2(x, x);
 
-		// d special power
-
-		x = 229;
-		y = 228;
-		double scale = 1;
-		this.dSpecialPower = new Vector2(x * scale, y * scale);
-
-		// gapBetweenRaceAndSpecialPower
-
-		this.gapBetweenRaceAndSpecialPower = 170 * scale;
-
-		// d race
-
-		y = this.dSpecialPower.y;
-		x = 439 * this.dSpecialPower.y / 233;
-		this.dRace = new Vector2(x, y);
-
 		// c map
 
 		x = 2030;
 		y = 1318;
 		this.dMap = new Vector2(x, y);
+
+		// race and special power dimensions
+
+		handleRaceAndSpecialPowerDimensions();
 
 		// c coin
 
@@ -82,6 +69,46 @@ public enum Credentials {
 		x /= 4;
 		y = 413 * x / 423;
 		this.dCoin = new Vector2(x, y);
+
+	}
+
+	private void handleRaceAndSpecialPowerDimensions() {
+
+		double scale = 1;
+		double totalX = this.dFrame.x;
+		totalX -= 2 * this.gapBetweenBorders;
+		totalX -= this.dMap.x;
+		totalX -= this.dGapBetweenComponents.x;
+
+		while (true) {
+
+			double x, y;
+
+			// d special power
+
+			x = 229;
+			y = 228;
+			this.dSpecialPower = new Vector2(x * scale, y * scale);
+
+			// gapBetweenRaceAndSpecialPower
+
+			this.gapBetweenRaceAndSpecialPower = 170 * scale;
+
+			// d race
+
+			y = this.dSpecialPower.y;
+			x = 439 * this.dSpecialPower.y / 233;
+			this.dRace = new Vector2(x, y);
+
+			double raceAndSpecialPowerX = this.gapBetweenRaceAndSpecialPower;
+			raceAndSpecialPowerX += this.dRace.x;
+
+			if (raceAndSpecialPowerX <= totalX)
+				break;
+
+			scale -= 0.1;
+
+		}
 
 	}
 
