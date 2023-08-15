@@ -20,8 +20,16 @@ public class Vector2 {
 		this.x += x;
 	}
 
+	public void addX(Vector2 vector2) {
+		addX(vector2.x);
+	}
+
 	public void addY(double y) {
 		this.y += y;
+	}
+
+	public void addY(Vector2 vector2) {
+		addY(vector2.y);
 	}
 
 	public void substractVector2(Vector2 vector2) {
@@ -33,8 +41,16 @@ public class Vector2 {
 		this.x -= x;
 	}
 
+	public void substractX(Vector2 vector2) {
+		substractX(vector2.x);
+	}
+
 	public void substractY(double y) {
 		this.y -= y;
+	}
+
+	public void substractY(Vector2 vector2) {
+		substractY(vector2.y);
 	}
 
 	public void print() {

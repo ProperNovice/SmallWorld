@@ -7,12 +7,10 @@ public class Numeric implements ISaveLoadStateAble {
 	private int numberCurrent, numberOriginal, numberState;
 
 	public Numeric(int number) {
+
 		this.numberCurrent = number;
 		saveOriginal();
-	}
 
-	public Numeric() {
-		this(0);
 	}
 
 	public void set(int number) {

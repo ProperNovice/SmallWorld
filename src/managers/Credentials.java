@@ -15,8 +15,8 @@ public enum Credentials {
 	public Vector2 cTextPanel, cImageViewIndicator;
 	public RearrangeTypeEnum rearrangeTypeEnumText = RearrangeTypeEnum.LINEAR;
 
-	public Vector2 cMap;
-	public Vector2 dSpecialPower, dRace;
+	public Vector2 cMap, cCoins;
+	public Vector2 dSpecialPower, dRace, dCoin, dMap;
 	public double gapBetweenRaceAndSpecialPower;
 
 	private Credentials() {
@@ -58,6 +58,30 @@ public enum Credentials {
 		y = this.dSpecialPower.y;
 		x = 439 * this.dSpecialPower.y / 233;
 		this.dRace = new Vector2(x, y);
+
+		// c map
+
+		x = 2030;
+		y = 1318;
+		this.dMap = new Vector2(x, y);
+
+		// c coin
+
+		x = this.gapBetweenBorders;
+		x += this.dMap.x;
+		x += this.dGapBetweenComponents.x;
+		y = this.gapBetweenBorders;
+		this.cCoins = new Vector2(x, y);
+
+		// d coin
+
+		x = this.dFrame.x;
+		x -= 2 * this.gapBetweenBorders;
+		x -= this.dMap.x;
+		x -= this.dGapBetweenComponents.x;
+		x /= 4;
+		y = 413 * x / 423;
+		this.dCoin = new Vector2(x, y);
 
 	}
 

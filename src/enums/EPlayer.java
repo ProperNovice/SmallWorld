@@ -1,6 +1,6 @@
 package enums;
 
-public enum EPlayers {
+public enum EPlayer {
 
 	I, II, BOT
 
