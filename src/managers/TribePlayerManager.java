@@ -1,21 +1,21 @@
 package managers;
 
-import model.RaceSpecialPower;
+import model.Tribe;
 import utils.Vector2;
 
-public enum RaceSpecialPowerManager {
+public enum TribePlayerManager {
 
 	INSTANCE;
 
-	private RaceSpecialPower active = null, inDecline = null;
+	private Tribe active = null, inDecline = null;
 
-	private RaceSpecialPowerManager() {
+	private TribePlayerManager() {
 
 	}
 
-	public void addActiveRaceAndSpecialPower(RaceSpecialPower raceSpecialPower) {
+	public void addTribe(Tribe tribe) {
 
-		this.active = raceSpecialPower;
+		this.active = tribe;
 		relocate();
 
 	}
@@ -30,12 +30,12 @@ public enum RaceSpecialPowerManager {
 
 	private void relocate() {
 
-		Vector2 vector2 = Credentials.INSTANCE.cRaceAndSpecialPower.clone();
+		Vector2 vector2 = Credentials.INSTANCE.cTribesPlayer.clone();
 
 		if (this.active != null) {
 
 			this.active.relocateTopLeft(vector2);
-			vector2.substractY(
+			vector2.addY(
 					Credentials.INSTANCE.dRace.y + Credentials.INSTANCE.dGapBetweenComponents.y);
 
 		}
@@ -43,7 +43,7 @@ public enum RaceSpecialPowerManager {
 		if (this.inDecline != null) {
 
 			this.inDecline.relocateTopLeft(vector2);
-			vector2.substractY(
+			vector2.addY(
 					Credentials.INSTANCE.dRace.y + Credentials.INSTANCE.dGapBetweenComponents.y);
 
 		}

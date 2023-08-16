@@ -11,7 +11,7 @@ public enum Board {
 
 	INSTANCE;
 
-	private ArrayList<RaceSpecialPower> list = new ArrayList<>(5);
+	private ArrayList<Tribe> list = new ArrayList<>(5);
 	private Background background = new Background(ELayerZ.RACES_SPECIAL_POWERS);
 
 	private Board() {
@@ -25,7 +25,7 @@ public enum Board {
 
 		Race race = RacesManager.INSTANCE.getRandomRace();
 		SpecialPower specialPower = SpecialPowersManager.INSTANCE.getRandomSpecialPower();
-		RaceSpecialPower raceSpecialPower = new RaceSpecialPower(race, specialPower);
+		Tribe raceSpecialPower = new Tribe(race, specialPower);
 
 		this.list.addLast(raceSpecialPower);
 
@@ -44,7 +44,7 @@ public enum Board {
 		centerY += 2
 				* (Credentials.INSTANCE.dRace.y + Credentials.INSTANCE.dGapBetweenComponents.y);
 
-		for (RaceSpecialPower raceSpecialPower : this.list) {
+		for (Tribe raceSpecialPower : this.list) {
 
 			int index = this.list.indexOf(raceSpecialPower);
 			double y = centerY - index
@@ -60,7 +60,7 @@ public enum Board {
 
 		this.background.getImageView().setVisible(false);
 
-		for (RaceSpecialPower raceSpecialPower : this.list) {
+		for (Tribe raceSpecialPower : this.list) {
 
 			raceSpecialPower.getRace().getImageView().setVisible(false);
 			raceSpecialPower.getSpecialPower().getImageView().setVisible(false);
@@ -69,7 +69,7 @@ public enum Board {
 
 	}
 
-	public void removeRaceSpecialPower(RaceSpecialPower raceSpecialPower) {
+	public void removeRaceSpecialPower(Tribe raceSpecialPower) {
 		this.list.remove(raceSpecialPower);
 	}
 

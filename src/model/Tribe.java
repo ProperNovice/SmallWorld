@@ -4,12 +4,12 @@ import managers.Credentials;
 import utils.Interfaces.ISelectCoordinatesAble;
 import utils.Vector2;
 
-public class RaceSpecialPower implements ISelectCoordinatesAble {
+public class Tribe implements ISelectCoordinatesAble {
 
 	private Race race = null;
 	private SpecialPower specialPower = null;
 
-	public RaceSpecialPower(Race race, SpecialPower specialPower) {
+	public Tribe(Race race, SpecialPower specialPower) {
 
 		this.race = race;
 		this.specialPower = specialPower;
@@ -26,7 +26,7 @@ public class RaceSpecialPower implements ISelectCoordinatesAble {
 
 	public void relocateCenter(double x, double y) {
 
-		double totalX = Credentials.INSTANCE.gapBetweenRaceAndSpecialPower
+		double totalX = Credentials.INSTANCE.gapBetweenTribesRaceAndSpecialPower
 				+ Credentials.INSTANCE.dRace.x;
 
 		double topLeftX = x - totalX / 2;
@@ -40,7 +40,7 @@ public class RaceSpecialPower implements ISelectCoordinatesAble {
 
 		this.specialPower.getImageView().relocateTopLeft(x, y);
 
-		double gapX = Credentials.INSTANCE.gapBetweenRaceAndSpecialPower;
+		double gapX = Credentials.INSTANCE.gapBetweenTribesRaceAndSpecialPower;
 		this.race.getImageView().relocateTopLeft(x + gapX, y);
 
 	}
@@ -53,7 +53,7 @@ public class RaceSpecialPower implements ISelectCoordinatesAble {
 	public Vector2 getSelectCoordinatesCenter() {
 
 		double x = this.specialPower.getImageView().getCoordinatesTopLeftX();
-		x += Credentials.INSTANCE.gapBetweenRaceAndSpecialPower / 2;
+		x += Credentials.INSTANCE.gapBetweenTribesRaceAndSpecialPower / 2;
 		x += Credentials.INSTANCE.dRace.x / 2;
 
 		double y = this.race.getImageView().getCoordinatesCenterY();

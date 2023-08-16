@@ -5,11 +5,11 @@ import enums.ERegionType;
 import enums.EToken;
 import gameStatesDefault.GameState;
 import managers.MapManager;
-import managers.RaceSpecialPowerManager;
+import managers.TribePlayerManager;
 import managers.RacesManager;
 import managers.SpecialPowersManager;
 import model.Race;
-import model.RaceSpecialPower;
+import model.Tribe;
 import model.Region;
 import model.SpecialPower;
 import tokens.TokenNonRace;
@@ -33,8 +33,8 @@ public class JUnit extends GameState {
 
 		Race race = RacesManager.INSTANCE.getRandomRace();
 		SpecialPower specialPower = SpecialPowersManager.INSTANCE.getRandomSpecialPower();
-		RaceSpecialPower raceSpecialPower = new RaceSpecialPower(race, specialPower);
-		RaceSpecialPowerManager.INSTANCE.addActiveRaceAndSpecialPower(raceSpecialPower);
+		Tribe raceSpecialPower = new Tribe(race, specialPower);
+		TribePlayerManager.INSTANCE.addTribe(raceSpecialPower);
 
 	}
 

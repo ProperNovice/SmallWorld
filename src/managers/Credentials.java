@@ -15,9 +15,9 @@ public enum Credentials {
 	public Vector2 cTextPanel, cImageViewIndicator;
 	public RearrangeTypeEnum rearrangeTypeEnumText = RearrangeTypeEnum.LINEAR;
 
-	public Vector2 cMap, cCoins, cRaceAndSpecialPower;
+	public Vector2 cMap, cCoins, cTribesPlayer;
 	public Vector2 dSpecialPower, dRace, dCoin, dMap;
-	public double gapBetweenRaceAndSpecialPower;
+	public double gapBetweenTribesRaceAndSpecialPower;
 
 	private Credentials() {
 
@@ -73,10 +73,10 @@ public enum Credentials {
 		// c race and special power
 
 		x = this.cCoins.x;
-		y = this.dFrame.y;
-		y -= this.gapBetweenBorders;
-		y -= this.dRace.y;
-		this.cRaceAndSpecialPower = new Vector2(x, y);
+		y = this.gapBetweenBorders;
+		y += this.dCoin.y;
+		y += this.dGapBetweenComponents.y;
+		this.cTribesPlayer = new Vector2(x, y);
 
 	}
 
@@ -100,7 +100,7 @@ public enum Credentials {
 
 			// gapBetweenRaceAndSpecialPower
 
-			this.gapBetweenRaceAndSpecialPower = 170 * scale;
+			this.gapBetweenTribesRaceAndSpecialPower = 170 * scale;
 
 			// d race
 
@@ -108,7 +108,7 @@ public enum Credentials {
 			x = 439 * this.dSpecialPower.y / 233;
 			this.dRace = new Vector2(x, y);
 
-			double raceAndSpecialPowerX = this.gapBetweenRaceAndSpecialPower;
+			double raceAndSpecialPowerX = this.gapBetweenTribesRaceAndSpecialPower;
 			raceAndSpecialPowerX += this.dRace.x;
 
 			if (raceAndSpecialPowerX <= totalX)
