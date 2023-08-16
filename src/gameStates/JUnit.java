@@ -1,19 +1,17 @@
 package gameStates;
 
-import enums.ERace;
 import enums.ERegionType;
 import enums.EToken;
 import gameStatesDefault.GameState;
 import managers.MapManager;
-import managers.TribePlayerManager;
 import managers.RacesManager;
 import managers.SpecialPowersManager;
+import managers.TribePlayerManager;
 import model.Race;
-import model.Tribe;
 import model.Region;
 import model.SpecialPower;
+import model.Tribe;
 import tokens.TokenNonRace;
-import tokens.TokenRace;
 
 public class JUnit extends GameState {
 
@@ -24,8 +22,6 @@ public class JUnit extends GameState {
 		addStartingLostTribes();
 
 		addRandomRaceSpecialPowerActive();
-
-		new TokenRace(ERace.ORCS).getImageView().flip();
 
 	}
 
