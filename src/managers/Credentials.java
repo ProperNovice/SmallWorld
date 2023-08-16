@@ -88,8 +88,6 @@ public enum Credentials {
 		totalX -= this.dMap.x;
 		totalX -= this.dGapBetweenComponents.x;
 
-		System.out.println(totalX);
-
 		while (true) {
 
 			double x, y;

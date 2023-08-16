@@ -27,29 +27,30 @@ public enum CoinManager {
 
 		createMapImageViews();
 		createMapNumeric();
+		show();
 
 	}
 
 	public void addCoins(EPlayer ePlayer, int coins) {
 
 		this.coins.getValue(ePlayer).add(coins);
-
-		int coinsDifference = this.coins.getValue(EPlayer.HUMAN).get()
-				- this.coins.getValue(EPlayer.BOT).get();
-
-		EPlayer ePlayerWinning = null;
-
-		if (coinsDifference >= 0)
-			ePlayerWinning = EPlayer.HUMAN;
-		else
-			ePlayerWinning = EPlayer.BOT;
-
-		Logger.INSTANCE.log("coins difference -> " + coinsDifference);
-		show(ePlayerWinning, Math.abs(coinsDifference));
+		show();
 
 	}
 
-	private void show(EPlayer ePlayer, int coins) {
+	private void show() {
+
+		int coinsToShow = this.coins.getValue(EPlayer.HUMAN).get()
+				- this.coins.getValue(EPlayer.BOT).get();
+
+		EPlayer ePlayer = null;
+
+		if (coinsToShow >= 0)
+			ePlayer = EPlayer.HUMAN;
+		else
+			ePlayer = EPlayer.BOT;
+
+		Logger.INSTANCE.log("coins difference -> " + coinsToShow);
 
 		// clear showing imageViews
 
@@ -71,21 +72,21 @@ public enum CoinManager {
 
 		int denominations;
 
-		denominations = getDenomination(coins, 10);
+		denominations = getDenomination(coinsToShow, 10);
 		map.getValue(10).add(denominations);
-		coins -= 10 * denominations;
+		coinsToShow -= 10 * denominations;
 
-		denominations = getDenomination(coins, 5);
+		denominations = getDenomination(coinsToShow, 5);
 		map.getValue(5).add(denominations);
-		coins -= 5 * denominations;
+		coinsToShow -= 5 * denominations;
 
-		denominations = getDenomination(coins, 3);
+		denominations = getDenomination(coinsToShow, 3);
 		map.getValue(3).add(denominations);
-		coins -= 3 * denominations;
+		coinsToShow -= 3 * denominations;
 
-		denominations = getDenomination(coins, 1);
+		denominations = getDenomination(coinsToShow, 1);
 		map.getValue(1).add(denominations);
-		coins -= 1 * denominations;
+		coinsToShow -= 1 * denominations;
 
 		Logger.INSTANCE.log("10 -> " + map.getValue(10).get());
 		Logger.INSTANCE.log("5 -> " + map.getValue(5).get());
