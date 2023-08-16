@@ -21,11 +21,11 @@ public class JUnit extends GameState {
 		addMountains();
 		addStartingLostTribes();
 
-		addRandomRaceSpecialPowerActive();
+		addRandomTribeActive();
 
 	}
 
-	public void addRandomRaceSpecialPowerActive() {
+	public void addRandomTribeActive() {
 
 		Race race = RacesManager.INSTANCE.getRandomRace();
 		SpecialPower specialPower = SpecialPowersManager.INSTANCE.getRandomSpecialPower();
