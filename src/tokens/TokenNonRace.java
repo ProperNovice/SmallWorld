@@ -4,19 +4,19 @@ import enums.EToken;
 
 public class TokenNonRace extends Token {
 
-	private EToken eGamePiece = null;
+	private EToken eToken = null;
 
-	public TokenNonRace(EToken eGamePiece) {
+	public TokenNonRace(EToken eToken) {
 
-		this.eGamePiece = eGamePiece;
+		this.eToken = eToken;
 		super.createImageView();
-		getImageView().setWidth(this.eGamePiece.getETokenSize().getSize());
+		getImageView().setWidth(this.eToken.getETokenSize().getSize());
 
 	}
 
 	@Override
 	protected String getFileName() {
-		return this.eGamePiece.toString().toLowerCase();
+		return this.eToken.toString().toLowerCase();
 	}
 
 }

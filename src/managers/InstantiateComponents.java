@@ -6,6 +6,8 @@ public enum InstantiateComponents {
 
 	private InstantiateComponents() {
 
+		CoinManager.values();
+
 	}
 
 }

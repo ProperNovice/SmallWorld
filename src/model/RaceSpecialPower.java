@@ -45,6 +45,10 @@ public class RaceSpecialPower implements ISelectCoordinatesAble {
 
 	}
 
+	public void relocateTopLeft(Vector2 vector2) {
+		relocateTopLeft(vector2.x, vector2.y);
+	}
+
 	@Override
 	public Vector2 getSelectCoordinatesCenter() {
 

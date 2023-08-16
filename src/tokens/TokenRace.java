@@ -1,16 +1,18 @@
 package tokens;
 
-import model.Race;
+import enums.ERace;
+import enums.ETokenSize;
 
 public class TokenRace extends Token {
 
-	private Class<? extends Race> classRace = null;
+	private ERace eRace = null;
 
-	public TokenRace(Class<? extends Race> classRace) {
+	public TokenRace(ERace eRace) {
 
-		this.classRace = classRace;
+		this.eRace = eRace;
 		super.createImageView();
 		createBack();
+		getImageView().setWidth(ETokenSize.SMALL.getSize());
 
 	}
 
@@ -18,7 +20,7 @@ public class TokenRace extends Token {
 
 		String fileName = "";
 		fileName += "tokens/races/back/";
-		fileName += this.classRace.getSimpleName();
+		fileName += this.eRace.toString().toLowerCase();
 		fileName += ".png";
 
 		getImageView().setBack(fileName);
@@ -27,7 +29,7 @@ public class TokenRace extends Token {
 
 	@Override
 	protected String getFileName() {
-		return "races/front/" + this.classRace.getSimpleName();
+		return "races/front/" + this.eRace.toString().toLowerCase();
 	}
 
 }

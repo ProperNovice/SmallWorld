@@ -34,13 +34,13 @@ public enum CoinManager {
 
 		this.coins.getValue(ePlayer).add(coins);
 
-		int coinsDifference = this.coins.getValue(EPlayer.I).get()
+		int coinsDifference = this.coins.getValue(EPlayer.HUMAN).get()
 				- this.coins.getValue(EPlayer.BOT).get();
 
 		EPlayer ePlayerWinning = null;
 
 		if (coinsDifference >= 0)
-			ePlayerWinning = EPlayer.I;
+			ePlayerWinning = EPlayer.HUMAN;
 		else
 			ePlayerWinning = EPlayer.BOT;
 
@@ -172,29 +172,29 @@ public enum CoinManager {
 
 	private void createMapNumeric() {
 
-		this.coins.put(EPlayer.I, new Numeric(0));
+		this.coins.put(EPlayer.HUMAN, new Numeric(0));
 		this.coins.put(EPlayer.BOT, new Numeric(0));
 
 	}
 
 	private void createMapImageViews() {
 
-		this.mapImageViews.put(EPlayer.I, new HashMap<>());
+		this.mapImageViews.put(EPlayer.HUMAN, new HashMap<>());
 		this.mapImageViews.put(EPlayer.BOT, new HashMap<>());
 
-		this.mapImageViews.getValue(EPlayer.I).put(1, new ArrayList<>());
-		this.mapImageViews.getValue(EPlayer.I).getValue(1).addLast(new CoinPlayer(1));
-		this.mapImageViews.getValue(EPlayer.I).getValue(1).addLast(new CoinPlayer(1));
+		this.mapImageViews.getValue(EPlayer.HUMAN).put(1, new ArrayList<>());
+		this.mapImageViews.getValue(EPlayer.HUMAN).getValue(1).addLast(new CoinPlayer(1));
+		this.mapImageViews.getValue(EPlayer.HUMAN).getValue(1).addLast(new CoinPlayer(1));
 
-		this.mapImageViews.getValue(EPlayer.I).put(3, new ArrayList<>());
-		this.mapImageViews.getValue(EPlayer.I).getValue(3).addLast(new CoinPlayer(3));
+		this.mapImageViews.getValue(EPlayer.HUMAN).put(3, new ArrayList<>());
+		this.mapImageViews.getValue(EPlayer.HUMAN).getValue(3).addLast(new CoinPlayer(3));
 
-		this.mapImageViews.getValue(EPlayer.I).put(5, new ArrayList<>());
-		this.mapImageViews.getValue(EPlayer.I).getValue(5).addLast(new CoinPlayer(5));
+		this.mapImageViews.getValue(EPlayer.HUMAN).put(5, new ArrayList<>());
+		this.mapImageViews.getValue(EPlayer.HUMAN).getValue(5).addLast(new CoinPlayer(5));
 
-		this.mapImageViews.getValue(EPlayer.I).put(10, new ArrayList<>());
-		this.mapImageViews.getValue(EPlayer.I).getValue(10).addLast(new CoinPlayer(10));
-		this.mapImageViews.getValue(EPlayer.I).getValue(10).addLast(new CoinPlayer(10));
+		this.mapImageViews.getValue(EPlayer.HUMAN).put(10, new ArrayList<>());
+		this.mapImageViews.getValue(EPlayer.HUMAN).getValue(10).addLast(new CoinPlayer(10));
+		this.mapImageViews.getValue(EPlayer.HUMAN).getValue(10).addLast(new CoinPlayer(10));
 
 		this.mapImageViews.getValue(EPlayer.BOT).put(1, new ArrayList<>());
 		this.mapImageViews.getValue(EPlayer.BOT).getValue(1).addLast(new CoinBot(1));
