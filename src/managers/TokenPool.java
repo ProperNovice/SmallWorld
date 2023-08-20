@@ -24,29 +24,29 @@ public enum TokenPool {
 		if (!this.mapTokenRace.containsKey(eRace))
 			this.mapTokenRace.put(eRace, new ArrayList<>());
 
-		int tokensAvailable = 0;
-
 		ArrayList<Token> listMap = this.mapTokenRace.getValue(eRace);
 		ArrayList<Token> listToReturn = new ArrayList<>();
 
-		// tokens available
+		for (Token token : listMap) {
 
-		for (Token token : listMap)
-			if (!token.getImageView().isVisible())
-				tokensAvailable++;
+			if (token.getImageView().isVisible())
+				continue;
 
-		// create tokens if necessary
+			token.getImageView().setVisible(true);
+			listToReturn.addLast(token);
 
-		for (int counter = tokensAvailable; counter < tokensNeeded; counter++)
-			listMap.addLast(new TokenRace(eRace));
+			if (listToReturn.size() == tokensNeeded)
+				break;
 
-		// create tokens to return
+		}
 
-		for (Token token : listMap)
-			if (!token.getImageView().isVisible()) {
-				listToReturn.addLast(token);
-				token.getImageView().setVisible(true);
-			}
+		while (listToReturn.size() < tokensNeeded) {
+
+			Token token = new TokenRace(eRace);
+			listMap.addLast(token);
+			listToReturn.addLast(token);
+
+		}
 
 		return listToReturn;
 
@@ -57,29 +57,29 @@ public enum TokenPool {
 		if (!this.mapTokenNonRace.containsKey(eToken))
 			this.mapTokenNonRace.put(eToken, new ArrayList<>());
 
-		int tokensAvailable = 0;
-
 		ArrayList<Token> listMap = this.mapTokenNonRace.getValue(eToken);
 		ArrayList<Token> listToReturn = new ArrayList<>();
 
-		// tokens available
+		for (Token token : listMap) {
 
-		for (Token token : listMap)
-			if (!token.getImageView().isVisible())
-				tokensAvailable++;
+			if (token.getImageView().isVisible())
+				continue;
 
-		// create tokens if necessary
+			token.getImageView().setVisible(true);
+			listToReturn.addLast(token);
 
-		for (int counter = tokensAvailable; counter < tokensNeeded; counter++)
-			listMap.addLast(new TokenNonRace(eToken));
+			if (listToReturn.size() == tokensNeeded)
+				break;
 
-		// create tokens to return
+		}
 
-		for (Token token : listMap)
-			if (!token.getImageView().isVisible()) {
-				listToReturn.addLast(token);
-				token.getImageView().setVisible(true);
-			}
+		while (listToReturn.size() < tokensNeeded) {
+
+			Token token = new TokenNonRace(eToken);
+			listMap.addLast(token);
+			listToReturn.addLast(token);
+
+		}
 
 		return listToReturn;
 

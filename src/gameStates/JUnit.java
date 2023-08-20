@@ -24,6 +24,7 @@ public class JUnit extends GameState {
 	public void execute() {
 
 		addMountains();
+		createStartingLostTribes();
 		addStartingLostTribes();
 
 		addRandomTribeActive();
@@ -58,10 +59,14 @@ public class JUnit extends GameState {
 
 	}
 
-	public void addStartingLostTribes() {
+	public void createStartingLostTribes() {
 
-		ArrayList<Token> tokens = TokenPool.INSTANCE.getTokensNonRace(EToken.LOSTTRIBES, 14);
+		ArrayList<Token> tokens = TokenPool.INSTANCE.getTokensNonRace(EToken.LOSTTRIBES, 16);
 		TokenManager.INSTANCE.addTokens(EPlayer.BOT, tokens);
+
+	}
+
+	public void addStartingLostTribes() {
 
 		for (Region region : MapManager.INSTANCE.getRegions()) {
 
