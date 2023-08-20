@@ -53,7 +53,7 @@ public class JUnit extends GameState {
 
 	public void addMountains() {
 
-		for (Region region : MapManager.INSTANCE.getRegions()) {
+		for (Region region : MapManager.INSTANCE.getRegionsClone()) {
 
 			if (region.getERegionType().equals(ERegionType.MOUNTAIN))
 				region.addTokenStaticRelocate(new TokenNonRace(EToken.MOUNTAIN));
@@ -71,7 +71,7 @@ public class JUnit extends GameState {
 
 	public void addStartingLostTribes() {
 
-		for (Region region : MapManager.INSTANCE.getRegions()) {
+		for (Region region : MapManager.INSTANCE.getRegionsClone()) {
 
 			if (!region.hasLostTribeSymbol())
 				continue;

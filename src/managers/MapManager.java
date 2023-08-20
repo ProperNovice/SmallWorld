@@ -15,8 +15,12 @@ public enum MapManager {
 
 	}
 
-	public ArrayList<Region> getRegions() {
-		return this.map.getRegions();
+	public ArrayList<Region> getRegionsClone() {
+		return this.map.getRegions().clone();
+	}
+
+	public ArrayList<Region> getAdjacenciesClone(Region region) {
+		return this.map.getAdjecencies(region).clone();
 	}
 
 }

@@ -13,9 +13,30 @@ public enum RegionModel {
 
 	}
 
-	public ArrayList<Region> filterRegionsAdjacentToSea(ArrayList<Region> list, EFilter eFilter) {
+	private boolean regionIsAdjacentToRegionType(Region region, ERegionType eRegionType) {
+
+		ArrayList<Region> adjacents = MapManager.INSTANCE.getAdjacenciesClone(region);
+
+		for (Region regionAdjacent : adjacents)
+			if (regionAdjacent.getERegionType().equals(eRegionType))
+				return true;
+
+		return false;
+
+	}
+
+	public ArrayList<Region> filterRegionsAdjacentToERegionType(ArrayList<Region> list,
+			ERegionType eRegionType, EFilter eFilter) {
 
 		for (Region region : list.clone()) {
+
+			if (regionIsAdjacentToRegionType(region, eRegionType)) {
+
+				if (eFilter.equals(EFilter.OUT))
+					list.remove(region);
+
+			} else if (eFilter.equals(EFilter.IN))
+				list.remove(region);
 
 		}
 
@@ -25,7 +46,7 @@ public enum RegionModel {
 
 	public ArrayList<Region> getAllRegionsFilterWater(EFilter eFilter) {
 
-		ArrayList<Region> list = MapManager.INSTANCE.getRegions().clone();
+		ArrayList<Region> list = MapManager.INSTANCE.getRegionsClone();
 
 		for (Region region : list.clone()) {
 
