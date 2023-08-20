@@ -1,17 +1,22 @@
 package gameStates;
 
+import enums.EPlayer;
 import enums.ERegionType;
 import enums.EToken;
 import gameStatesDefault.GameState;
 import managers.MapManager;
 import managers.RacesManager;
 import managers.SpecialPowersManager;
+import managers.TokenManager;
+import managers.TokenPool;
 import managers.TribePlayerManager;
 import model.Race;
 import model.Region;
 import model.SpecialPower;
 import model.Tribe;
+import tokens.Token;
 import tokens.TokenNonRace;
+import utils.ArrayList;
 
 public class JUnit extends GameState {
 
@@ -32,6 +37,14 @@ public class JUnit extends GameState {
 		Tribe raceSpecialPower = new Tribe(race, specialPower);
 		TribePlayerManager.INSTANCE.addTribe(raceSpecialPower);
 
+		int tokensNeeded = 0;
+		tokensNeeded += race.getERace().getValue();
+		tokensNeeded += specialPower.getESpecialPower().getValue();
+
+		ArrayList<Token> tokens = TokenPool.INSTANCE.getTokensRace(race.getERace(), tokensNeeded);
+
+		TokenManager.INSTANCE.addTokens(EPlayer.HUMAN, tokens);
+
 	}
 
 	public void addMountains() {
@@ -47,10 +60,17 @@ public class JUnit extends GameState {
 
 	public void addStartingLostTribes() {
 
+		ArrayList<Token> tokens = TokenPool.INSTANCE.getTokensNonRace(EToken.LOSTTRIBES, 14);
+		TokenManager.INSTANCE.addTokens(EPlayer.BOT, tokens);
+
 		for (Region region : MapManager.INSTANCE.getRegions()) {
 
-			if (region.hasLostTribeSymbol())
-				region.addTokenLinearRelocate(new TokenNonRace(EToken.LOSTTRIBES));
+			if (!region.hasLostTribeSymbol())
+				continue;
+
+			ArrayList<Token> list = TokenManager.INSTANCE.getTokens(EPlayer.BOT, 1, true);
+
+			region.addTokensLinearRelocate(list);
 
 		}
 

@@ -18,6 +18,7 @@ public abstract class Token implements IImageViewAble {
 		fileName += ".png";
 
 		new ImageView(fileName, getELayerZ(), this);
+		getImageView().setVisible(false);
 
 	}
 

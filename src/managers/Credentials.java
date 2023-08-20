@@ -1,5 +1,6 @@
 package managers;
 
+import enums.ETokenSize;
 import utils.Enums.RearrangeTypeEnum;
 import utils.Vector2;
 
@@ -15,7 +16,7 @@ public enum Credentials {
 	public Vector2 cTextPanel, cImageViewIndicator;
 	public RearrangeTypeEnum rearrangeTypeEnumText = RearrangeTypeEnum.LINEAR;
 
-	public Vector2 cMap, cCoins, cTribesPlayer;
+	public Vector2 cMap, cCoins, cTribesPlayer, cTokensHuman, cTokensBot;
 	public Vector2 dSpecialPower, dRace, dCoin, dMap;
 	public double gapBetweenTribesRaceAndSpecialPower;
 
@@ -70,11 +71,27 @@ public enum Credentials {
 		y = 413 * x / 423;
 		this.dCoin = new Vector2(x, y);
 
-		// c race and special power
+		// c tokens human
 
 		x = this.cCoins.x;
 		y = this.gapBetweenBorders;
 		y += this.dCoin.y;
+		y += this.dGapBetweenComponents.y;
+		this.cTokensHuman = new Vector2(x, y);
+
+		// c tokens bot
+
+		x = this.cTokensHuman.x;
+		y = this.cTokensHuman.y;
+		y += ETokenSize.SMALL.getSize();
+		y += this.dGapBetweenComponents.y;
+		this.cTokensBot = new Vector2(x, y);
+
+		// c race and special power
+
+		x = this.cCoins.x;
+		y = this.cTokensBot.y;
+		y += ETokenSize.SMALL.getSize();
 		y += this.dGapBetweenComponents.y;
 		this.cTribesPlayer = new Vector2(x, y);
 

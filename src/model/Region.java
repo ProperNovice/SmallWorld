@@ -5,6 +5,7 @@ import listCredentials.ListRegionLinear;
 import listCredentials.ListRegionStatic;
 import managers.Credentials;
 import tokens.Token;
+import utils.ArrayList;
 import utils.Interfaces.ISelectCoordinatesAble;
 import utils.ListImageViewAbles;
 import utils.Logger;
@@ -34,17 +35,31 @@ public class Region implements ISelectCoordinatesAble {
 
 	}
 
-	public void addTokenLinearRelocate(Token gamePiece) {
-		addGamePieceRelocate(this.listLinear, gamePiece);
+	public void addTokenLinearRelocate(Token token) {
+		addTokenRelocate(this.listLinear, token);
 	}
 
-	public void addTokenStaticRelocate(Token gamePiece) {
-		addGamePieceRelocate(this.listStatic, gamePiece);
+	public void addTokensLinearRelocate(ArrayList<Token> tokens) {
+
+		for (Token token : tokens)
+			addTokenRelocate(this.listLinear, token);
+
 	}
 
-	private void addGamePieceRelocate(ListImageViewAbles<Token> listImageViewAbles, Token gamePiece) {
+	public void addTokenStaticRelocate(Token token) {
+		addTokenRelocate(this.listStatic, token);
+	}
 
-		listImageViewAbles.getArrayList().addLast(gamePiece);
+	public void addTokensStaticRelocate(ArrayList<Token> tokens) {
+
+		for (Token token : tokens)
+			addTokenRelocate(this.listStatic, token);
+
+	}
+
+	private void addTokenRelocate(ListImageViewAbles<Token> listImageViewAbles, Token token) {
+
+		listImageViewAbles.getArrayList().addLast(token);
 		listImageViewAbles.relocateImageViews();
 
 	}
