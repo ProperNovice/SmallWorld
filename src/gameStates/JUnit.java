@@ -17,6 +17,7 @@ import model.Tribe;
 import tokens.Token;
 import tokens.TokenNonRace;
 import utils.ArrayList;
+import utils.Flow;
 
 public class JUnit extends GameState {
 
@@ -28,6 +29,8 @@ public class JUnit extends GameState {
 		addStartingLostTribes();
 
 		addRandomTribeActive();
+
+		Flow.INSTANCE.executeGameState(FirstConquest.class);
 
 	}
 
