@@ -5,6 +5,7 @@ import listCredentials.ListRegionLinear;
 import listCredentials.ListRegionStatic;
 import managers.Credentials;
 import tokens.Token;
+import tokens.TokenRace;
 import utils.ArrayList;
 import utils.Interfaces.ISelectCoordinatesAble;
 import utils.ListImageViewAbles;
@@ -14,24 +15,36 @@ import utils.Vector2;
 public class Region implements ISelectCoordinatesAble {
 
 	private ERegionType eRegionType = null;
-	private boolean hasMine = false, isMagic = false, hasCavern = false, hasLostTribeSymbol = false;
+	private boolean hasMine = false, isMagic = false, hasCavern = false, hasLostTribeSymbol = false,
+			isBorder = false;
 	private Vector2 coordinates = null;
 	public ListImageViewAbles<Token> listLinear = new ListImageViewAbles<>(ListRegionLinear.class);
 	public ListImageViewAbles<Token> listStatic = new ListImageViewAbles<>(ListRegionStatic.class);
 
 	public Region(ERegionType eRegionType, boolean hasMine, boolean isMagic, boolean hasCavern,
-			boolean hasLostTribeSymbol, Vector2 coordinates) {
+			boolean hasLostTribeSymbol, boolean isBorder, Vector2 coordinates) {
 
 		this.eRegionType = eRegionType;
 		this.hasMine = hasMine;
 		this.isMagic = isMagic;
 		this.hasCavern = hasCavern;
 		this.hasLostTribeSymbol = hasLostTribeSymbol;
+		this.isBorder = isBorder;
 		this.coordinates = coordinates;
 
 		this.coordinates.addVector2(Credentials.INSTANCE.cMap);
 		this.listLinear.getListCredentials().coordinatesList = this.coordinates;
 		this.listStatic.getListCredentials().coordinatesList = this.coordinates;
+
+	}
+
+	public boolean containsTokenRace() {
+
+		for (Token token : this.listLinear)
+			if (TokenRace.class.isAssignableFrom(token.getClass()))
+				return true;
+
+		return false;
 
 	}
 
@@ -82,6 +95,10 @@ public class Region implements ISelectCoordinatesAble {
 
 	public boolean hasLostTribeSymbol() {
 		return this.hasLostTribeSymbol;
+	}
+
+	public boolean isBorder() {
+		return this.isBorder;
 	}
 
 	public Vector2 getCoordinates() {

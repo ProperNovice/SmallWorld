@@ -11,7 +11,7 @@ public enum Credentials {
 	public final String primaryStageTitle = "Small World", numbersImageViewColor = "black";
 	public final boolean colliderVisibility = true;
 	public final double gapBetweenBorders = 25, textHeight = 50,
-			selectEventHandlerAbleDimension = 100, animationStep = 4;
+			selectEventHandlerAbleDimension = ETokenSize.SMALL.getSize(), animationStep = 4;
 	public Vector2 dFrame, dGapBetweenComponents, dGapBetweenComponentsLineCast;
 	public Vector2 cTextPanel, cImageViewIndicator;
 	public RearrangeTypeEnum rearrangeTypeEnumText = RearrangeTypeEnum.LINEAR;

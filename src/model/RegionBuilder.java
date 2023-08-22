@@ -7,7 +7,8 @@ import utils.Vector2;
 public class RegionBuilder {
 
 	private ERegionType eRegionType = null;
-	private boolean hasMine = false, isMagic = false, hasCavern = false, hasLostTribeSymbol = false;
+	private boolean hasMine = false, isMagic = false, hasCavern = false, hasLostTribeSymbol = false,
+			isBorder = false;
 	private Vector2 coordinates = null;
 
 	public RegionBuilder() {
@@ -39,6 +40,11 @@ public class RegionBuilder {
 		return this;
 	}
 
+	public RegionBuilder isBorder() {
+		this.isBorder = true;
+		return this;
+	}
+
 	public RegionBuilder coordinates(double x, double y) {
 		this.coordinates = new Vector2(x, y);
 		return this;
@@ -50,7 +56,7 @@ public class RegionBuilder {
 			ShutDown.INSTANCE.execute();
 
 		return new Region(this.eRegionType, this.hasMine, this.isMagic, this.hasCavern,
-				this.hasLostTribeSymbol, this.coordinates);
+				this.hasLostTribeSymbol, this.isBorder, this.coordinates);
 
 	}
 

@@ -10,33 +10,33 @@ public class MapVanilla2 extends Map {
 
 		// 0
 
-		super.regions.addLast(
-				new RegionBuilder().coordinates(208, 124).regionType(ERegionType.SEA).build());
+		super.regions.addLast(new RegionBuilder().coordinates(208, 124).regionType(ERegionType.SEA)
+				.isBorder().build());
 
 		// 1
 
 		super.regions.addLast(new RegionBuilder().coordinates(604, 182)
-				.regionType(ERegionType.FARMLAND).isMagic().build());
+				.regionType(ERegionType.FARMLAND).isMagic().isBorder().build());
 
 		// 2
 
 		super.regions.addLast(new RegionBuilder().coordinates(914, 146)
-				.regionType(ERegionType.FOREST).hasMine().build());
+				.regionType(ERegionType.FOREST).hasMine().isBorder().build());
 
 		// 3
 
 		super.regions.addLast(new RegionBuilder().coordinates(1263, 179)
-				.regionType(ERegionType.SWAMP).hasCavern().hasLostTribeSymbol().build());
+				.regionType(ERegionType.SWAMP).hasCavern().hasLostTribeSymbol().isBorder().build());
 
 		// 4
 
-		super.regions.addLast(
-				new RegionBuilder().coordinates(1771, 151).regionType(ERegionType.HILL).build());
+		super.regions.addLast(new RegionBuilder().coordinates(1771, 151)
+				.regionType(ERegionType.HILL).isBorder().build());
 
 		// 5
 
 		super.regions.addLast(new RegionBuilder().coordinates(245, 472)
-				.regionType(ERegionType.MOUNTAIN).hasMine().hasCavern().build());
+				.regionType(ERegionType.MOUNTAIN).hasMine().hasCavern().isBorder().build());
 
 		// 6
 
@@ -61,12 +61,12 @@ public class MapVanilla2 extends Map {
 		// 10
 
 		super.regions.addLast(new RegionBuilder().coordinates(1840, 437)
-				.regionType(ERegionType.FOREST).isMagic().hasLostTribeSymbol().build());
+				.regionType(ERegionType.FOREST).isMagic().hasLostTribeSymbol().isBorder().build());
 
 		// 11
 
 		super.regions.addLast(new RegionBuilder().coordinates(247, 761)
-				.regionType(ERegionType.FARMLAND).hasLostTribeSymbol().build());
+				.regionType(ERegionType.FARMLAND).hasLostTribeSymbol().isBorder().build());
 
 		// 12
 
@@ -86,42 +86,42 @@ public class MapVanilla2 extends Map {
 		// 15
 
 		super.regions.addLast(new RegionBuilder().coordinates(1904, 679)
-				.regionType(ERegionType.MOUNTAIN).hasMine().build());
+				.regionType(ERegionType.MOUNTAIN).hasMine().isBorder().build());
 
 		// 16
 
 		super.regions.addLast(new RegionBuilder().coordinates(158, 1059)
-				.regionType(ERegionType.SWAMP).isMagic().hasLostTribeSymbol().build());
+				.regionType(ERegionType.SWAMP).isMagic().hasLostTribeSymbol().isBorder().build());
 
 		// 17
 
 		super.regions.addLast(new RegionBuilder().coordinates(542, 1078)
-				.regionType(ERegionType.HILL).hasCavern().build());
+				.regionType(ERegionType.HILL).hasCavern().isBorder().build());
 
 		// 18
 
 		super.regions.addLast(new RegionBuilder().coordinates(917, 1140)
-				.regionType(ERegionType.SWAMP).hasMine().hasLostTribeSymbol().build());
+				.regionType(ERegionType.SWAMP).hasMine().hasLostTribeSymbol().isBorder().build());
 
 		// 19
 
 		super.regions.addLast(new RegionBuilder().coordinates(1215, 1155)
-				.regionType(ERegionType.MOUNTAIN).build());
+				.regionType(ERegionType.MOUNTAIN).isBorder().build());
 
 		// 20
 
-		super.regions.addLast(
-				new RegionBuilder().coordinates(1487, 1032).regionType(ERegionType.SWAMP).build());
+		super.regions.addLast(new RegionBuilder().coordinates(1487, 1032)
+				.regionType(ERegionType.SWAMP).isBorder().build());
 
 		// 21
 
-		super.regions.addLast(
-				new RegionBuilder().coordinates(1748, 925).regionType(ERegionType.FOREST).build());
+		super.regions.addLast(new RegionBuilder().coordinates(1748, 925)
+				.regionType(ERegionType.FOREST).isBorder().build());
 
 		// 22
 
-		super.regions.addLast(
-				new RegionBuilder().coordinates(1830, 1191).regionType(ERegionType.SEA).build());
+		super.regions.addLast(new RegionBuilder().coordinates(1830, 1191)
+				.regionType(ERegionType.SEA).isBorder().build());
 
 	}
 

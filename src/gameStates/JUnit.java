@@ -1,11 +1,14 @@
 package gameStates;
 
+import enums.EFilter;
 import enums.EPlayer;
+import enums.ERace;
 import enums.ERegionType;
 import enums.EToken;
 import gameStatesDefault.GameState;
 import managers.MapManager;
 import managers.RacesManager;
+import managers.ModelRegion;
 import managers.SpecialPowersManager;
 import managers.TokenManager;
 import managers.TokenPool;
@@ -16,6 +19,7 @@ import model.SpecialPower;
 import model.Tribe;
 import tokens.Token;
 import tokens.TokenNonRace;
+import tokens.TokenRace;
 import utils.ArrayList;
 import utils.Flow;
 
@@ -30,7 +34,21 @@ public class JUnit extends GameState {
 
 		addRandomTribeActive();
 
+		addTokenRaceToRegion(ERace.HALFLINGS, 2, 20);
+
 		Flow.INSTANCE.executeGameState(FirstConquest.class);
+
+	}
+
+	public void addTokenRaceToRegion(ERace eRace, int tokens, int region) {
+
+		ArrayList<Token> list = new ArrayList<>();
+
+		for (int counter = 1; counter <= tokens; counter++)
+			list.addLast(new TokenRace(eRace));
+
+		ModelRegion.INSTANCE.getAllRegionsFilterWater(EFilter.IN).get(region)
+				.addTokensLinearRelocate(list);
 
 	}
 

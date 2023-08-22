@@ -5,11 +5,11 @@ import enums.ERegionType;
 import model.Region;
 import utils.ArrayList;
 
-public enum RegionModel {
+public enum ModelRegion {
 
 	INSTANCE;
 
-	private RegionModel() {
+	private ModelRegion() {
 
 	}
 
@@ -22,6 +22,43 @@ public enum RegionModel {
 				return true;
 
 		return false;
+
+	}
+
+	public ArrayList<Region> filterBorderRegions(ArrayList<Region> list, EFilter eFilter) {
+
+		for (Region region : list.clone()) {
+
+			if (region.isBorder()) {
+
+				if (eFilter.equals(EFilter.OUT))
+					list.remove(region);
+
+			} else if (eFilter.equals(EFilter.IN))
+				list.remove(region);
+
+		}
+
+		return list;
+
+	}
+
+	public ArrayList<Region> filterRegionsContainTokenRace(ArrayList<Region> list,
+			EFilter eFilter) {
+
+		for (Region region : list.clone()) {
+
+			if (region.containsTokenRace()) {
+
+				if (eFilter.equals(EFilter.OUT))
+					list.remove(region);
+
+			} else if (eFilter.equals(EFilter.IN))
+				list.remove(region);
+
+		}
+
+		return list;
 
 	}
 
