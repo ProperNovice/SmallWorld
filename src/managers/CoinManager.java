@@ -50,6 +50,8 @@ public enum CoinManager {
 		else
 			ePlayer = EPlayer.BOT;
 
+		coinsToShow = Math.abs(coinsToShow);
+
 		Logger.INSTANCE.log("coins difference -> " + coinsToShow);
 
 		// clear showing imageViews
