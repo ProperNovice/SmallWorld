@@ -6,9 +6,10 @@ import enums.ERace;
 import enums.ERegionType;
 import enums.EToken;
 import gameStatesDefault.GameState;
+import managers.CoinManager;
 import managers.MapManager;
-import managers.RacesManager;
 import managers.ModelRegion;
+import managers.RacesManager;
 import managers.SpecialPowersManager;
 import managers.TokenManager;
 import managers.TokenPool;
@@ -31,12 +32,13 @@ public class JUnit extends GameState {
 		addMountains();
 		createStartingLostTribes();
 		addStartingLostTribes();
+		addCoins(EPlayer.HUMAN, 5);
 
-		addRandomTribeActive();
+//		addRandomTribeActive();
 
-		addTokenRaceToRegion(ERace.HALFLINGS, 2, 20);
+//		addTokenRaceToRegion(ERace.HALFLINGS, 2, 20);
 
-		Flow.INSTANCE.executeGameState(FirstConquest.class);
+		Flow.INSTANCE.executeGameState(StartNewRound.class);
 
 	}
 
@@ -57,7 +59,7 @@ public class JUnit extends GameState {
 		Race race = RacesManager.INSTANCE.getRandomRace();
 		SpecialPower specialPower = SpecialPowersManager.INSTANCE.getRandomSpecialPower();
 		Tribe raceSpecialPower = new Tribe(race, specialPower);
-		TribePlayerManager.INSTANCE.addTribe(raceSpecialPower);
+		TribePlayerManager.INSTANCE.addActiveTribe(raceSpecialPower);
 
 		int tokensNeeded = 0;
 		tokensNeeded += race.getERace().getValue();
@@ -100,6 +102,10 @@ public class JUnit extends GameState {
 
 		}
 
+	}
+
+	public void addCoins(EPlayer ePlayer, int amount) {
+		CoinManager.INSTANCE.addCoins(ePlayer, amount);
 	}
 
 }

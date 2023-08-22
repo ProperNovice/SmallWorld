@@ -1,5 +1,6 @@
 package coins;
 
+import enums.ELayerZ;
 import managers.Credentials;
 import utils.ImageView;
 import utils.Interfaces.IImageViewAble;
@@ -17,7 +18,7 @@ public abstract class Coin implements IImageViewAble {
 		filePath += this.value;
 		filePath += ".png";
 
-		new ImageView(filePath, this);
+		new ImageView(filePath, ELayerZ.TOKENS, this);
 		getImageView().setDimensions(Credentials.INSTANCE.dCoin);
 		getImageView().setVisible(false);
 

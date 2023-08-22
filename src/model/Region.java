@@ -7,6 +7,7 @@ import managers.Credentials;
 import tokens.Token;
 import tokens.TokenRace;
 import utils.ArrayList;
+import utils.Flow;
 import utils.Interfaces.ISelectCoordinatesAble;
 import utils.ListImageViewAbles;
 import utils.Logger;
@@ -36,6 +37,11 @@ public class Region implements ISelectCoordinatesAble {
 		this.listLinear.getListCredentials().coordinatesList = this.coordinates;
 		this.listStatic.getListCredentials().coordinatesList = this.coordinates;
 
+	}
+
+	@Override
+	public void handleMousePressedPrimary() {
+		Flow.INSTANCE.getGameStateCurrent().handleRegionPressed(this);
 	}
 
 	public boolean containsTokenRace() {
@@ -123,6 +129,8 @@ public class Region implements ISelectCoordinatesAble {
 			Logger.INSTANCE.log("has cavern");
 		if (this.hasLostTribeSymbol)
 			Logger.INSTANCE.log("has Lost Tribe symbol");
+		if (this.isBorder)
+			Logger.INSTANCE.log("is border");
 
 		Logger.INSTANCE.newLine();
 

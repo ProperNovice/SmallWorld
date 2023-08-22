@@ -7,42 +7,50 @@ public enum TribePlayerManager {
 
 	INSTANCE;
 
-	private Tribe active = null, inDecline = null;
+	private Tribe activeTribe = null, inDeclineTribe = null;
 
 	private TribePlayerManager() {
 
 	}
 
-	public void addTribe(Tribe tribe) {
+	public void addActiveTribe(Tribe tribe) {
 
-		this.active = tribe;
+		this.activeTribe = tribe;
 		relocate();
 
 	}
 
 	public void declineActiveRace() {
 
-		this.inDecline = this.active;
-		this.active = null;
+		this.inDeclineTribe = this.activeTribe;
+		this.activeTribe = null;
 		relocate();
 
+	}
+
+	public Tribe getActiveTribe() {
+		return this.activeTribe;
+	}
+
+	public Tribe getDeclinedTribe() {
+		return this.inDeclineTribe;
 	}
 
 	private void relocate() {
 
 		Vector2 vector2 = Credentials.INSTANCE.cTribesPlayer.clone();
 
-		if (this.active != null) {
+		if (this.activeTribe != null) {
 
-			this.active.relocateTopLeft(vector2);
+			this.activeTribe.relocateTopLeft(vector2);
 			vector2.addY(
 					Credentials.INSTANCE.dRace.y + Credentials.INSTANCE.dGapBetweenComponents.y);
 
 		}
 
-		if (this.inDecline != null) {
+		if (this.inDeclineTribe != null) {
 
-			this.inDecline.relocateTopLeft(vector2);
+			this.inDeclineTribe.relocateTopLeft(vector2);
 			vector2.addY(
 					Credentials.INSTANCE.dRace.y + Credentials.INSTANCE.dGapBetweenComponents.y);
 

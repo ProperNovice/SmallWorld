@@ -12,6 +12,10 @@ public enum EText {
 	VOID("", TextTypeEnum.INDICATOR),
 	YOU_LOST("You lost", TextTypeEnum.INDICATOR),
 	YOU_WON("You won", TextTypeEnum.INDICATOR),
+	START_NEW_ROUND("Start new round", TextTypeEnum.INDICATOR),
+	CHOOSE_TRIBE("Choose tribe", TextTypeEnum.INDICATOR),
+	SHOW_TRIBES("Show tribes", TextTypeEnum.OPTION),
+	SHOW_BOARD("Show board", TextTypeEnum.OPTION),
 
 	;
 

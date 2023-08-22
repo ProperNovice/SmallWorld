@@ -28,10 +28,6 @@ public enum Credentials {
 		this.dGapBetweenComponents = new Vector2(4, 4);
 		this.dGapBetweenComponentsLineCast = this.dGapBetweenComponents;
 
-		// c text panel
-
-		this.cTextPanel = new Vector2(x, y);
-
 		// c image view indicator
 
 		x = this.gapBetweenBorders;
@@ -94,6 +90,14 @@ public enum Credentials {
 		y += ETokenSize.SMALL.getSize();
 		y += this.dGapBetweenComponents.y;
 		this.cTribesPlayer = new Vector2(x, y);
+
+		// c text panel
+
+		x = this.cMap.x;
+		x += this.dMap.x;
+		x += this.dGapBetweenComponents.x;
+		y = 600;
+		this.cTextPanel = new Vector2(x, y);
 
 	}
 

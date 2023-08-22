@@ -3,6 +3,8 @@ package gameStatesDefault;
 import enums.EText;
 import javafx.scene.input.KeyCode;
 import managers.ListsManager;
+import model.Region;
+import model.Tribe;
 import utils.ArrayList;
 import utils.Flow;
 import utils.KeyCodeHandler;
@@ -64,6 +66,14 @@ public abstract class GameState {
 
 	protected final ListsManager getListsManager() {
 		return ListsManager.INSTANCE;
+	}
+
+	public void handleRegionPressed(Region region) {
+
+	}
+
+	public void handleTribePressed(Tribe tribe) {
+
 	}
 
 }

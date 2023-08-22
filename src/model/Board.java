@@ -11,7 +11,7 @@ public enum Board {
 
 	INSTANCE;
 
-	private ArrayList<Tribe> list = new ArrayList<>(5);
+	private ArrayList<Tribe> list = new ArrayList<>(6);
 	private Background background = new Background(ELayerZ.RACES_SPECIAL_POWERS);
 
 	private Board() {
@@ -41,16 +41,19 @@ public enum Board {
 		double centerX = Credentials.INSTANCE.dFrame.x / 2;
 
 		double centerY = Credentials.INSTANCE.dFrame.y / 2;
-		centerY += 2
+		centerY += 2.5
 				* (Credentials.INSTANCE.dRace.y + Credentials.INSTANCE.dGapBetweenComponents.y);
 
-		for (Tribe raceSpecialPower : this.list) {
+		for (Tribe tribe : this.list) {
 
-			int index = this.list.indexOf(raceSpecialPower);
+			int index = this.list.indexOf(tribe);
 			double y = centerY - index
 					* (Credentials.INSTANCE.dRace.y + Credentials.INSTANCE.dGapBetweenComponents.y);
 
-			raceSpecialPower.relocateCenter(centerX, y);
+			tribe.relocateCenter(centerX, y);
+
+			tribe.getRace().getImageView().setVisible(true);
+			tribe.getSpecialPower().getImageView().setVisible(true);
 
 		}
 

@@ -1,6 +1,7 @@
 package model;
 
 import managers.Credentials;
+import utils.Flow;
 import utils.Interfaces.ISelectCoordinatesAble;
 import utils.Vector2;
 
@@ -60,6 +61,11 @@ public class Tribe implements ISelectCoordinatesAble {
 
 		return new Vector2(x, y);
 
+	}
+
+	@Override
+	public void handleMousePressedPrimary() {
+		Flow.INSTANCE.getGameStateCurrent().handleTribePressed(this);
 	}
 
 }
